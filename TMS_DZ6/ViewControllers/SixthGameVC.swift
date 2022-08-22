@@ -47,8 +47,9 @@ class SixthGameVC: UIViewController {
         viewCircle.backgroundColor = random()
         viewCircle.frame.size.width = sizeCircle
         viewCircle.frame.size.height = sizeCircle
-        viewCircle.frame.origin.x = touchPoint.x - sizeCircle/2
-        viewCircle.frame.origin.y = touchPoint.y - sizeCircle/2
+//        viewCircle.frame.origin.x = touchPoint.x - sizeCircle/2
+//        viewCircle.frame.origin.y = touchPoint.y - sizeCircle/2
+        viewCircle.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
         viewCircle.layer.cornerRadius = sizeCircle/2
         viewCircle.layer.borderWidth = 2
         
@@ -59,12 +60,10 @@ class SixthGameVC: UIViewController {
     func checkViewIsInterSecting(viewToCheck: UIView) {
         guard let allSubViews = self.view?.subviews else {return}
         for viewS in allSubViews { //Running the loop through the subviews array
-            if (!(viewToCheck .isEqual(viewS))){ //Checking the view is equal to view to check or not
-                if(viewToCheck.frame.intersects(viewS.frame)) { //Checking the view is intersecting with other or not
+                if viewToCheck.frame.intersects(viewS.frame) { //Checking the view is intersecting with other or not
                     viewS.removeFromSuperview()
                 }
             }
-        }
     }
     
     func random() -> UIColor {

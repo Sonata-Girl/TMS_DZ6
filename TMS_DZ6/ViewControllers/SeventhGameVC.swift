@@ -47,9 +47,13 @@ class SeventhGameVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func circleMove(_ sender: UITapGestureRecognizer) {
+    @IBAction func circleMove(_ sender: UIPanGestureRecognizer) {
+//         let translation = sender.translation(in: self.view)
+//          viewCircle.center = CGPoint(x: viewCircle.center.x + translation.x,
+//                                    y: viewCircle.center.y + translation.y)
+//          sender.setTranslation(CGPoint(x: 0, y: 0), in: self.view)
         let touchPoint = sender.location(in: self.view)
-        
+
         guard touchPoint.y >= self.view.safeAreaInsets.top + sizeCircle/2 else {
             viewCircle.frame.origin.y = self.view.safeAreaInsets.top
             return
@@ -66,9 +70,11 @@ class SeventhGameVC: UIViewController {
             viewCircle.frame.origin.x = self.view.frame.width - sizeCircle
             return
         }
-        
-        viewCircle.frame.origin.x = touchPoint.x - sizeCircle/2
-        viewCircle.frame.origin.y = touchPoint.y - sizeCircle/2
+
+        //        viewCircle.frame.origin.x = touchPoint.x - sizeCircle/2
+        //        viewCircle.frame.origin.y = touchPoint.y - sizeCircle/2
+
+        viewCircle.center = CGPoint(x: touchPoint.x, y: touchPoint.y)
     }
 
 }
