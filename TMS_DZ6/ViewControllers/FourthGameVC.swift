@@ -11,7 +11,7 @@ class FourthGameVC: UIViewController {
     
     let buttonRight = UIButton()
     let textSide = UITextField()
-    let closeButton = UIButton()
+    let closeButton = CloseButton()
     
     var side: CGFloat = 100
     var x: CGFloat = 0
@@ -54,13 +54,6 @@ class FourthGameVC: UIViewController {
         textSide.frame.origin.x = sizeX3
         self.view.addSubview(textSide)
         
-        closeButton.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        closeButton.setTitle("x", for: .normal)
-        closeButton.titleLabel?.textColor = .white
-        closeButton.frame.size.width = 20
-        closeButton.frame.size.height = 20
-        closeButton.layer.borderWidth = 1
-        closeButton.layer.cornerRadius = closeButton.frame.size.height/2
         closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width
         closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
         self.view.addSubview(closeButton)
@@ -77,7 +70,8 @@ class FourthGameVC: UIViewController {
     }
     
     @IBAction func closeButtonAction() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func addview() {

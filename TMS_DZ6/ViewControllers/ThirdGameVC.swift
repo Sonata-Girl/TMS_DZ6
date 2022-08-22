@@ -20,7 +20,7 @@ class ThirdGameVC: UIViewController {
     let buttonLeft = UIButton()
     let buttonRight = UIButton()
     let circle = UIView()
-    let closeButton = UIButton()
+    let closeButton = CloseButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,18 +90,27 @@ class ThirdGameVC: UIViewController {
         buttonLeft.addTarget(self, action: #selector(moveLeft), for: .touchUpInside)
         buttonRight.addTarget(self, action: #selector(moveRight), for: .touchUpInside)
         
-        closeButton.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        closeButton.setTitle("x", for: .normal)
-        closeButton.titleLabel?.textColor = .white
-        closeButton.frame.size.width = 20
-        closeButton.frame.size.height = 20
-        closeButton.layer.borderWidth = 1
-        closeButton.layer.cornerRadius = closeButton.frame.size.height/2
         closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width
         closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
         self.view.addSubview(closeButton)
         
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        
+        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(moveUp))
+        upSwipe.direction = .up
+        self.circle.addGestureRecognizer(upSwipe)
+        
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(moveDown))
+        downSwipe.direction = .down
+        self.circle.addGestureRecognizer(downSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(moveLeft))
+        leftSwipe.direction = .left
+        self.circle.addGestureRecognizer(leftSwipe)
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(moveRight))
+        rightSwipe.direction = .right
+        self.circle.addGestureRecognizer(rightSwipe)
         
     }
     
@@ -122,7 +131,8 @@ class ThirdGameVC: UIViewController {
     }
     
     @IBAction func closeButtonAction() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     private func moveCircle(direction: Side) {

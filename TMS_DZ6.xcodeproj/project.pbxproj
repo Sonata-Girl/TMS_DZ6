@@ -15,6 +15,10 @@
 		6707640D28B2E5E800206604 /* FifthGameVC_Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707640C28B2E5E800206604 /* FifthGameVC_Settings.swift */; };
 		6707640F28B2E64100206604 /* FifthGameVC_Records.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707640E28B2E64100206604 /* FifthGameVC_Records.swift */; };
 		6707641128B2E66000206604 /* FifthGameVC_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707641028B2E66000206604 /* FifthGameVC_Main.swift */; };
+		6736225628B40EC800474BA1 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225528B40EC800474BA1 /* CloseButton.swift */; };
+		6736225928B4132400474BA1 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225828B4132400474BA1 /* GameButton.swift */; };
+		6736225B28B417C800474BA1 /* SixthGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225A28B417C800474BA1 /* SixthGameVC.swift */; };
+		6736225D28B4252000474BA1 /* SeventhGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225C28B4252000474BA1 /* SeventhGameVC.swift */; };
 		67457CCA28AC3EDB00144BCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67457CC928AC3EDB00144BCA /* AppDelegate.swift */; };
 		67457CCC28AC3EDB00144BCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67457CCB28AC3EDB00144BCA /* SceneDelegate.swift */; };
 		67457CCE28AC3EDB00144BCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67457CCD28AC3EDB00144BCA /* ViewController.swift */; };
@@ -32,6 +36,10 @@
 		6707640C28B2E5E800206604 /* FifthGameVC_Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthGameVC_Settings.swift; sourceTree = "<group>"; };
 		6707640E28B2E64100206604 /* FifthGameVC_Records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthGameVC_Records.swift; sourceTree = "<group>"; };
 		6707641028B2E66000206604 /* FifthGameVC_Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthGameVC_Main.swift; sourceTree = "<group>"; };
+		6736225528B40EC800474BA1 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		6736225828B4132400474BA1 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
+		6736225A28B417C800474BA1 /* SixthGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthGameVC.swift; sourceTree = "<group>"; };
+		6736225C28B4252000474BA1 /* SeventhGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhGameVC.swift; sourceTree = "<group>"; };
 		67457CC628AC3EDB00144BCA /* TMS_DZ6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMS_DZ6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67457CC928AC3EDB00144BCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67457CCB28AC3EDB00144BCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,11 +64,13 @@
 		6707640228B2CB8F00206604 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6707640928B2E28700206604 /* ShipsGameVC5 */,
 				6707640028B2C9F700206604 /* FirstGameVC.swift */,
 				6707640328B2CBC800206604 /* SecondGameVC.swift */,
 				6707640528B2CC4800206604 /* ThirdGameVC.swift */,
 				6707640728B2E21200206604 /* FourthGameVC.swift */,
+				6707640928B2E28700206604 /* ShipsGameVC5 */,
+				6736225A28B417C800474BA1 /* SixthGameVC.swift */,
+				6736225C28B4252000474BA1 /* SeventhGameVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -74,6 +84,15 @@
 				6707640E28B2E64100206604 /* FifthGameVC_Records.swift */,
 			);
 			name = ShipsGameVC5;
+			sourceTree = "<group>";
+		};
+		6736225728B40ECC00474BA1 /* Addons */ = {
+			isa = PBXGroup;
+			children = (
+				6736225528B40EC800474BA1 /* CloseButton.swift */,
+				6736225828B4132400474BA1 /* GameButton.swift */,
+			);
+			path = Addons;
 			sourceTree = "<group>";
 		};
 		67457CBD28AC3EDB00144BCA = {
@@ -98,6 +117,7 @@
 				67457CC928AC3EDB00144BCA /* AppDelegate.swift */,
 				67457CCB28AC3EDB00144BCA /* SceneDelegate.swift */,
 				67457CCD28AC3EDB00144BCA /* ViewController.swift */,
+				6736225728B40ECC00474BA1 /* Addons */,
 				6707640228B2CB8F00206604 /* ViewControllers */,
 				67457CCF28AC3EDB00144BCA /* Main.storyboard */,
 				67457CD228AC3EDC00144BCA /* Assets.xcassets */,
@@ -184,10 +204,14 @@
 				6707641128B2E66000206604 /* FifthGameVC_Main.swift in Sources */,
 				6707640F28B2E64100206604 /* FifthGameVC_Records.swift in Sources */,
 				67457CCA28AC3EDB00144BCA /* AppDelegate.swift in Sources */,
+				6736225628B40EC800474BA1 /* CloseButton.swift in Sources */,
+				6736225B28B417C800474BA1 /* SixthGameVC.swift in Sources */,
+				6736225D28B4252000474BA1 /* SeventhGameVC.swift in Sources */,
 				6707640B28B2E2C500206604 /* FifthGameVC_Start.swift in Sources */,
 				67457CCC28AC3EDB00144BCA /* SceneDelegate.swift in Sources */,
 				6707640128B2C9F700206604 /* FirstGameVC.swift in Sources */,
 				6707640828B2E21200206604 /* FourthGameVC.swift in Sources */,
+				6736225928B4132400474BA1 /* GameButton.swift in Sources */,
 				6707640D28B2E5E800206604 /* FifthGameVC_Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,9 +11,7 @@ class FirstGameVC: UIViewController {
     
     //  / / / / / / / / / / / / / / / / / / // / / /   FIRS GAME
     let buttonForCircle = UIButton()
-    let button = UIButton()
-    var arrayView = [UIView]()
-    let closeButton = UIButton()
+    let closeButton = CloseButton()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +34,6 @@ class FirstGameVC: UIViewController {
         
         buttonForCircle.addTarget(self, action: #selector(moveCircle), for: .touchUpInside)
         
-        closeButton.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        closeButton.setTitle("x", for: .normal)
-         closeButton.titleLabel?.textColor = .white
-        closeButton.frame.size.width = 20
-        closeButton.frame.size.height = 20
-        closeButton.layer.borderWidth = 1
-        closeButton.layer.cornerRadius = closeButton.frame.size.height/2
         closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width
         closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
         self.view.addSubview(closeButton)
@@ -63,7 +54,8 @@ class FirstGameVC: UIViewController {
     }
     
     @IBAction func closeButtonAction() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func random() -> UIColor {

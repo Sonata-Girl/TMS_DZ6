@@ -67,7 +67,7 @@ class SecondGameVC: UIViewController {
         buttonMinus.addTarget(self, action: #selector(actionMinus), for: .touchDown)
         
         closeButton.backgroundColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        closeButton.setTitle("x", for: .normal)
+        closeButton.setTitle("X", for: .normal)
         closeButton.titleLabel?.textColor = .white
         closeButton.frame.size.width = 20
         closeButton.frame.size.height = 20
@@ -121,7 +121,8 @@ class SecondGameVC: UIViewController {
     }
     
     @IBAction func closeButtonAction() {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func random() -> UIColor {
