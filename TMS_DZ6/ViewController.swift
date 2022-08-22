@@ -116,7 +116,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pressButton5() {
-        let vcGame5 = FifthGameShipsVC()
+        let vcGame5 = FifthGameVC_Start()
         vcGame5.modalPresentationStyle = .fullScreen
         self.present(vcGame5, animated: true, completion: nil)
     }
