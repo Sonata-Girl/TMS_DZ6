@@ -11,9 +11,8 @@ class ViewController: UIViewController {
     private var label = UILabel()
     private var buttonsGame = [GameButton]()
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLoad()
-        
+    
+    override func viewDidLoad() {
         let safeArea = self.view.safeAreaInsets
         let buttonDistance = CGFloat(20)
         let viewHalfWidth = self.view.frame.size.width/2
@@ -25,6 +24,7 @@ class ViewController: UIViewController {
         label.frame.size.height = 30
         label.center = self.view.center
         label.textAlignment = .center
+        label.frame.origin.y = self.view.frame.size.width/4
         self.view.addSubview(label)
        
         let button1 = GameButton()
@@ -60,6 +60,11 @@ class ViewController: UIViewController {
         button7.setTitle("Game Ball follow finger", for: .normal)
         button7.backgroundColor = .systemMint
         buttonsGame.append(button7)
+       
+        let button8 = GameButton()
+        button8.setTitle("Calculator", for: .normal)
+        button8.backgroundColor = .systemPink
+        buttonsGame.append(button8)
 
         for (index, button) in buttonsGame.enumerated() {
             if index == 0 {
@@ -80,6 +85,12 @@ class ViewController: UIViewController {
         button5.addTarget(self, action: #selector(pressButton5), for: .touchUpInside)
         button6.addTarget(self, action: #selector(pressButton6), for: .touchUpInside)
         button7.addTarget(self, action: #selector(pressButton7), for: .touchUpInside)
+        button8.addTarget(self, action: #selector(pressButton8), for: .touchUpInside)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLoad()
+        
+       
     }
     
     @IBAction func pressButton1() {
@@ -129,6 +140,13 @@ class ViewController: UIViewController {
 //        vcGame5.modalPresentationStyle = .fullScreen
 //        self.present(vcGame5, animated: true, completion: nil)
         self.navigationController?.pushViewController(vcGame7, animated: true)
+    }
+    
+    @IBAction func pressButton8() {
+        guard let vcGame8 = storyboard?.instantiateViewController(withIdentifier: "EightCalculatorVC") else {return}
+//        vcGame5.modalPresentationStyle = .fullScreen
+//        self.present(vcGame5, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vcGame8, animated: true)
     }
 }
 

@@ -90,7 +90,7 @@ class ThirdGameVC: UIViewController {
         buttonLeft.addTarget(self, action: #selector(moveLeft), for: .touchUpInside)
         buttonRight.addTarget(self, action: #selector(moveRight), for: .touchUpInside)
         
-        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width
+        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width - 5
         closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
         self.view.addSubview(closeButton)
         

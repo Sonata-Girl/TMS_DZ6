@@ -25,6 +25,7 @@
 		67457CD128AC3EDB00144BCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67457CCF28AC3EDB00144BCA /* Main.storyboard */; };
 		67457CD328AC3EDC00144BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67457CD228AC3EDC00144BCA /* Assets.xcassets */; };
 		67457CD628AC3EDC00144BCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67457CD428AC3EDC00144BCA /* LaunchScreen.storyboard */; };
+		674B6ECF28B5800100BBC746 /* EightCalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B6ECE28B5800100BBC746 /* EightCalculatorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		67457CD228AC3EDC00144BCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67457CD528AC3EDC00144BCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67457CD728AC3EDC00144BCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		674B6ECE28B5800100BBC746 /* EightCalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightCalculatorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				6707640928B2E28700206604 /* ShipsGameVC5 */,
 				6736225A28B417C800474BA1 /* SixthGameVC.swift */,
 				6736225C28B4252000474BA1 /* SeventhGameVC.swift */,
+				674B6ECE28B5800100BBC746 /* EightCalculatorVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				6707641128B2E66000206604 /* FifthGameVC_Main.swift in Sources */,
 				6707640F28B2E64100206604 /* FifthGameVC_Records.swift in Sources */,
 				67457CCA28AC3EDB00144BCA /* AppDelegate.swift in Sources */,
+				674B6ECF28B5800100BBC746 /* EightCalculatorVC.swift in Sources */,
 				6736225628B40EC800474BA1 /* CloseButton.swift in Sources */,
 				6736225B28B417C800474BA1 /* SixthGameVC.swift in Sources */,
 				6736225D28B4252000474BA1 /* SeventhGameVC.swift in Sources */,

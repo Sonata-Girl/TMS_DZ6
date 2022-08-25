@@ -73,7 +73,7 @@ class SecondGameVC: UIViewController {
         closeButton.frame.size.height = 20
         closeButton.layer.borderWidth = 1
         closeButton.layer.cornerRadius = closeButton.frame.size.height/2
-        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width
+        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right -  closeButton.frame.size.width - 5
         closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
         self.view.addSubview(closeButton)
         

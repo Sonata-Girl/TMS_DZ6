@@ -26,7 +26,7 @@ class SixthGameVC: UIViewController {
         
         view.backgroundColor = .white
         
-        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width
+        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width - 5
         closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
         self.view.addSubview(closeButton)
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
