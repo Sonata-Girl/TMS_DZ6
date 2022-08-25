@@ -26,7 +26,7 @@ enum ButtonType {
     case digit, operation, equal, none
 }
 
-class EightCalculatorVC: UIViewController {
+final class EightCalculatorVC: UIViewController {
    
     let closeButton = CloseButton()
     
@@ -53,31 +53,27 @@ class EightCalculatorVC: UIViewController {
     @IBOutlet weak var button9: UIButton!
     
 
-    var oneComponent = 0.0
-    var twoComponent = 0.0
-    var threeComponent = 0.0
-    var oneCompFull = false
-    var twoCompFull = false
-    var threeCompFull = false
-    var oneMark = Operation.none
-    var twoMark = Operation.none
-    var lastButton = ButtonType.none
-    var currentDigit = ""
+    private var oneComponent = 0.0
+    private var twoComponent = 0.0
+    private var threeComponent = 0.0
+    private var oneCompFull = false
+    private var twoCompFull = false
+    private var threeCompFull = false
+    private var oneMark = Operation.none
+    private var twoMark = Operation.none
+    private var lastButton = ButtonType.none
+    private var currentDigit = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.resultLabel.text = "0"
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidLayoutSubviews() {
-        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width - 5
-        closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
-        self.view.addSubview(closeButton)
+        viewDidLoad()
+        view.backgroundColor = .white
+        resultLabel.text = "0"
+       
+        closeButton.frame.origin.x = view.frame.width - view.safeAreaInsets.right - closeButton.frame.size.width - 5
+        closeButton.frame.origin.y = view.safeAreaInsets.top + 1
+        view.addSubview(closeButton)
         
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
-        
     }
     
     @IBAction func closeButtonAction() {
@@ -383,12 +379,12 @@ class EightCalculatorVC: UIViewController {
     private func updateLabel(){
         if currentDigit.count == 1 && currentDigit.contains("0")  {
             currentDigit = ""
-            self.resultLabel.text = "0"
+            resultLabel.text = "0"
         } else {
             if Double(currentDigit) ?? 0  == Double(Int(Double(currentDigit) ?? 0 )) {
-                self.resultLabel.text = String(Int(Double(currentDigit) ?? 0))
+                resultLabel.text = String(Int(Double(currentDigit) ?? 0))
             } else {
-                self.resultLabel.text = currentDigit
+                resultLabel.text = currentDigit
             }
         }
     }
