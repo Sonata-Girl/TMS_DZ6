@@ -65,7 +65,7 @@ final class EightCalculatorVC: UIViewController {
     private var currentDigit = ""
     
     override func viewDidLoad() {
-        viewDidLoad()
+        super.viewDidLoad()
         view.backgroundColor = .white
         resultLabel.text = "0"
        
