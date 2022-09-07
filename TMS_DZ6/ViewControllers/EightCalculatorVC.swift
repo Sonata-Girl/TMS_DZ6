@@ -69,11 +69,14 @@ final class EightCalculatorVC: UIViewController {
         view.backgroundColor = .white
         resultLabel.text = "0"
        
-        closeButton.frame.origin.x = view.frame.width - view.safeAreaInsets.right - closeButton.frame.size.width - 5
-        closeButton.frame.origin.y = view.safeAreaInsets.top + 1
         view.addSubview(closeButton)
         
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        closeButton.frame.origin.x = view.frame.width - view.safeAreaInsets.right - closeButton.frame.size.width - 5
+        closeButton.frame.origin.y = view.safeAreaInsets.top + 1
     }
     
     @IBAction func closeButtonAction() {

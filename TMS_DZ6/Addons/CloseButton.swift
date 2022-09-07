@@ -23,7 +23,7 @@ class CloseButton: UIButton {
         titleLabel?.textColor = .white
         setTitle("X", for: .normal)
         backgroundColor = .black
-        layer.cornerRadius = 12
+        layer.cornerRadius = 15
         frame.size.width = 20
         frame.size.height = 20
         layer.borderWidth = 1

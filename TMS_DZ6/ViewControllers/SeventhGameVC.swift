@@ -9,10 +9,10 @@ import UIKit
 
 class SeventhGameVC: UIViewController {
 
-    let viewCircle = UIView()
-    let closeButton = CloseButton()
-    var originCircle = CGFloat(0)
-    var sizeCircle = CGFloat(0)
+    private let viewCircle = UIView()
+    private let closeButton = CloseButton()
+    private var originCircle = CGFloat(0)
+    private var sizeCircle = CGFloat(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()

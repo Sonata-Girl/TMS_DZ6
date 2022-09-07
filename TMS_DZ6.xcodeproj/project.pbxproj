@@ -25,6 +25,8 @@
 		67457CD128AC3EDB00144BCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67457CCF28AC3EDB00144BCA /* Main.storyboard */; };
 		67457CD328AC3EDC00144BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67457CD228AC3EDC00144BCA /* Assets.xcassets */; };
 		67457CD628AC3EDC00144BCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67457CD428AC3EDC00144BCA /* LaunchScreen.storyboard */; };
+		6749BF9E28C36EEC0017DB9A /* NineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6749BF9D28C36EEC0017DB9A /* NineVC.swift */; };
+		6749BFA028C3AD500017DB9A /* TenImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6749BF9F28C3AD500017DB9A /* TenImagesVC.swift */; };
 		674B6ECF28B5800100BBC746 /* EightCalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B6ECE28B5800100BBC746 /* EightCalculatorVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		67457CD228AC3EDC00144BCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67457CD528AC3EDC00144BCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67457CD728AC3EDC00144BCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6749BF9D28C36EEC0017DB9A /* NineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NineVC.swift; sourceTree = "<group>"; };
+		6749BF9F28C3AD500017DB9A /* TenImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenImagesVC.swift; sourceTree = "<group>"; };
 		674B6ECE28B5800100BBC746 /* EightCalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightCalculatorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +78,8 @@
 				6736225A28B417C800474BA1 /* SixthGameVC.swift */,
 				6736225C28B4252000474BA1 /* SeventhGameVC.swift */,
 				674B6ECE28B5800100BBC746 /* EightCalculatorVC.swift */,
+				6749BF9D28C36EEC0017DB9A /* NineVC.swift */,
+				6749BF9F28C3AD500017DB9A /* TenImagesVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6749BFA028C3AD500017DB9A /* TenImagesVC.swift in Sources */,
 				6707640628B2CC4800206604 /* ThirdGameVC.swift in Sources */,
 				67457CCE28AC3EDB00144BCA /* ViewController.swift in Sources */,
 				6707640428B2CBC800206604 /* SecondGameVC.swift in Sources */,
@@ -217,6 +224,7 @@
 				6707640828B2E21200206604 /* FourthGameVC.swift in Sources */,
 				6736225928B4132400474BA1 /* GameButton.swift in Sources */,
 				6707640D28B2E5E800206604 /* FifthGameVC_Settings.swift in Sources */,
+				6749BF9E28C36EEC0017DB9A /* NineVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +308,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -354,6 +363,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -363,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RD3BV5S34P;
@@ -380,6 +391,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Dylan-Sanders.TMS-DZ6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RD3BV5S34P;
@@ -408,6 +421,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Dylan-Sanders.TMS-DZ6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

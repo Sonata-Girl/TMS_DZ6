@@ -10,13 +10,16 @@ class ViewController: UIViewController {
    
     private var label = UILabel()
     private var buttonsGame = [GameButton]()
-    
+    private var scrolView = UIScrollView()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         let safeArea = self.view.safeAreaInsets
         let buttonDistance = CGFloat(20)
         let viewHalfWidth = self.view.frame.size.width/2
-        
+                
+        self.view.addSubview(scrolView)
+       
         label.text = "Welcome Screen! Choose the game..."
         label.textColor = .black
         label.frame.size.width = self.view.frame.size.width
@@ -25,7 +28,7 @@ class ViewController: UIViewController {
         label.center = self.view.center
         label.textAlignment = .center
         label.frame.origin.y = self.view.frame.size.width/4
-        self.view.addSubview(label)
+        self.scrolView.addSubview(label)
        
         let button1 = GameButton()
         button1.setTitle("Game 1 for Cat", for: .normal)
@@ -66,16 +69,26 @@ class ViewController: UIViewController {
         button8.backgroundColor = .systemPink
         buttonsGame.append(button8)
 
+        let button9 = GameButton()
+        button9.setTitle("loopBall", for: .normal)
+        button9.backgroundColor = .systemRed
+        buttonsGame.append(button9)
+        
+        let button10 = GameButton()
+        button10.setTitle("images", for: .normal)
+        button10.backgroundColor = .systemRed
+        buttonsGame.append(button10)
+       
         for (index, button) in buttonsGame.enumerated() {
             if index == 0 {
                 button.frame.origin.x = viewHalfWidth - safeArea.left - (button.frame.size.width/2)
                 button.frame.origin.y = label.frame.origin.y + button.frame.size.height + buttonDistance
-                self.view.addSubview(button)
+                self.scrolView.addSubview(button)
                 continue
             }
             button.frame.origin.x = viewHalfWidth - safeArea.left - (button.frame.size.width/2)
             button.frame.origin.y = buttonsGame[index - 1].frame.origin.y + button.frame.size.height + buttonDistance
-            self.view.addSubview(button)
+            self.scrolView.addSubview(button)
         }
    
         button1.addTarget(self, action: #selector(pressButton1), for: .touchUpInside)
@@ -86,11 +99,32 @@ class ViewController: UIViewController {
         button6.addTarget(self, action: #selector(pressButton6), for: .touchUpInside)
         button7.addTarget(self, action: #selector(pressButton7), for: .touchUpInside)
         button8.addTarget(self, action: #selector(pressButton8), for: .touchUpInside)
+        button9.addTarget(self, action: #selector(pressButton9), for: .touchUpInside)
+        button10.addTarget(self, action: #selector(pressButton10), for: .touchUpInside)
     }
     override func viewDidLayoutSubviews() {
-        super.viewDidLoad()
-        
+        super.viewDidLayoutSubviews()
        
+        scrolView.contentSize = CGSize(width: self.view.frame.size.width , height: self.view.frame.size.height + CGFloat(buttonsGame.count * 10))
+        scrolView.frame.size.height = self.view.frame.size.height
+        scrolView.frame.size.width = self.view.frame.size.width
+        scrolView.frame.origin.x = self.view.frame.origin.x
+        scrolView.frame.origin.x = self.view.frame.origin.y
+//
+//        scrolView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            scrolView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+//            scrolView.topAnchor.constraint(equalTo: self.view.topAnchor),
+//            scrolView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+//            scrolView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+//        ])
+        
+//        buttonsGame[buttonsGame.count - 1].translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+////            buttonsGame[buttonsGame.count - 1].topAnchor.constraint(equalTo: scrolView.topAnchor),
+//            buttonsGame[buttonsGame.count - 1].rightAnchor.constraint(equalTo: scrolView.rightAnchor, constant: 50),
+//            buttonsGame[buttonsGame.count - 1].leftAnchor.constraint(equalTo: scrolView.leftAnchor, constant: 50)
+//        ])
     }
     
     @IBAction func pressButton1() {
@@ -122,7 +156,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pressButton5() {
-        let vcGame5 = FifthGameVC_Start()
+        guard let vcGame5 = storyboard?.instantiateViewController(withIdentifier: "FifthGameVC_Start") as? FifthGameVC_Start else {return}
 //        vcGame5.modalPresentationStyle = .fullScreen
 //        self.present(vcGame5, animated: true, completion: nil)
         self.navigationController?.pushViewController(vcGame5, animated: true)
@@ -143,10 +177,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pressButton8() {
-        guard let vcGame8 = storyboard?.instantiateViewController(withIdentifier: "EightCalculatorVC") else {return}
+        guard let vcGame8 = storyboard?.instantiateViewController(withIdentifier: "EightCalculatorVC") as? EightCalculatorVC else {return}
 //        vcGame5.modalPresentationStyle = .fullScreen
 //        self.present(vcGame5, animated: true, completion: nil)
         self.navigationController?.pushViewController(vcGame8, animated: true)
+    }
+    
+    @IBAction func pressButton9() {
+        let vcGame9 = NineVC()
+        self.navigationController?.pushViewController(vcGame9, animated: true)
+    }
+    
+    @IBAction func pressButton10() {
+        let vcGame10 = TenImagesVC()
+        self.navigationController?.pushViewController(vcGame10, animated: true)
     }
 }
 
