@@ -13,6 +13,8 @@ enum Direction {
 
 class TenImagesVC: UIViewController {
 
+    private var elementsDidLoad = false
+   
     private let closeButton = CloseButton()
     private let imageViewMain = UIImageView()
     private var images = [UIImage]()
@@ -46,14 +48,19 @@ class TenImagesVC: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        setupUI()
-        
-        nextButton.setTitle("Next Pic", for: .normal)
-        nextButton.backgroundColor = .orange
-        
-        prevButton.setTitle("Prev Pic", for: .normal)
-        prevButton.backgroundColor = .orange
-        
+        if !elementsDidLoad {
+            setupUI()
+            
+            nextButton.setTitle("Next Pic", for: .normal)
+            nextButton.backgroundColor = .orange
+            
+            prevButton.setTitle("Prev Pic", for: .normal)
+            prevButton.backgroundColor = .orange
+            
+            imageViewMain.addShadow()
+
+        }
+             
     }
     
     private func setupUI() {
@@ -136,3 +143,16 @@ class TenImagesVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+
+//extension UIImageView {
+//    func addShadow() {
+//            layer.masksToBounds = false // распространение тени за пределы контейнера
+//            layer.shadowColor = UIColor.black.cgColor // цвет
+//            layer.shadowOpacity = 0.5 // прозрачность
+//            layer.shadowOffset = CGSize(width: 0, height: 10) // расположение. сдвиг тени
+//            layer.shadowRadius = 10 // это отступ от вью до конца тени
+//            
+//            layer.shadowPath = UIBezierPath(rect: bounds).cgPath // кривые бизье  - рисовка фигур кривых каких то
+//            layer.shouldRasterize = true //  размытие тени
+//        }
+//}
