@@ -11,7 +11,7 @@ class FifthGameVC_Main: UIViewController {
     
     // MARK: Outlets
      @IBOutlet weak var submarine: UIImageView!
-     @IBOutlet weak var oxygenBar: UIProgressView!
+    @IBOutlet weak var oxygenBar: UIProgressView!
      @IBOutlet weak var ship: UIImageView!
      @IBOutlet weak var shark: UIImageView!
     
@@ -51,6 +51,13 @@ class FifthGameVC_Main: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        submarine.addShadow()
+        shark.addShadow()
+        ship.addShadow()
+        bulletShot.addShadow()
+        bulletFind.addShadow()
+        octopus.addShadow()
+        
         oxygenBar.setProgress(1, animated: true)
  
         view.addSubview(labelGameOver)
@@ -152,7 +159,7 @@ class FifthGameVC_Main: UIViewController {
     // MARK: Functions
     private func moveShark() {
         UIView.animate(withDuration: 0.0001) {
-            self.shark.frame.origin.x -= 2
+            self.shark.frame.origin.x -= 1
         }
         if self.shark.frame.origin.x + self.shark.frame.size.width < 0 {
             self.shark.frame.origin.x = self.waterView.frame.size.width + self.shark.frame.size.width
@@ -173,7 +180,7 @@ class FifthGameVC_Main: UIViewController {
         
     private func moveShip() {
         UIView.animate(withDuration: 0.0001) {
-            self.ship.frame.origin.x -= 1
+            self.ship.frame.origin.x -= 0.5
         }
         if self.ship.frame.origin.x + self.ship.frame.size.width < 0 {
             self.ship.frame.origin.x = self.waterView.frame.size.width + self.ship.frame.size.width
@@ -209,10 +216,10 @@ class FifthGameVC_Main: UIViewController {
         if self.octopus.frame.origin.x <= self.submarine.frame.origin.x + self.submarine.frame.size.width - 10 {
             let rangeYSubmarineStart = self.submarine.frame.origin.y
             let rangeYSubmarineEnd = self.submarine.frame.origin.y + self.submarine.frame.size.height
-            if rangeYSubmarineStart...rangeYSubmarineEnd ~= self.octopus.frame.origin.y + 40 {
-                if !self.timerBullet.isValid {
+            if rangeYSubmarineStart...rangeYSubmarineEnd ~= self.octopus.frame.origin.y {
+//                if !self.timerBullet.isValid {
                     self.stopTimerAndGameOver()
-                }
+//                }
             }
         }
     }
@@ -253,7 +260,6 @@ class FifthGameVC_Main: UIViewController {
             self.bulletShot.frame.origin.x += 2
         }
         if self.bulletShot.frame.origin.x + self.bulletShot.frame.size.width > self.waterView.frame.size.width {
-//            self.bulletShot.frame.origin.x = self.waterView.frame.size.width + self.bulletFind.frame.size.width
             self.timerBullet.invalidate()
             self.bulletShot.isHidden = true
         }
@@ -261,7 +267,6 @@ class FifthGameVC_Main: UIViewController {
             let rangeYBulletStart = self.shark.frame.origin.y
             let rangeYBulletEnd = self.shark.frame.origin.y + self.shark.frame.size.height
             if rangeYBulletStart...rangeYBulletEnd ~= self.bulletShot.center.y {
-//                self.shark.frame.origin.x -= 50
                 self.timerBullet.invalidate()
                 self.scoresCount += 1
                 self.scoresLabel.text = String(scoresCount)
@@ -277,7 +282,9 @@ class FifthGameVC_Main: UIViewController {
                 }
             }
         }
-        if self.octopus.frame.origin.x  <= self.bulletShot.frame.origin.x + self.bulletShot.frame.size.width {
+        if  self.bulletShot.frame.origin.x + self.bulletShot.frame.size.width <= self.octopus.frame.origin.x + self.octopus.frame.size.width &&
+            self.bulletShot.frame.origin.x + self.bulletShot.frame.size.width >=
+            self.octopus.frame.origin.x  {
             let rangeYBulletStart = self.octopus.frame.origin.y
             let rangeYBulletEnd = self.octopus.frame.origin.y + self.octopus.frame.size.height
             if rangeYBulletStart...rangeYBulletEnd ~= self.bulletShot.center.y {
@@ -403,3 +410,20 @@ class FifthGameVC_Main: UIViewController {
     
 
 }
+
+extension UIImageView {
+      
+    func addShadow() {
+        layer.masksToBounds = false // распространение тени за пределы контейнера
+        layer.shadowColor = UIColor.black.cgColor // цвет
+        layer.shadowOpacity = 0.2 // прозрачность
+        layer.shadowOffset = CGSize(width: 0, height: 10) // расположение. сдвиг тени
+        layer.shadowRadius = 20 // это отступ от вью до конца тени
+        
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath // кривые бизье  - рисовка фигур кривых каких то
+        
+        layer.shouldRasterize = true //  размытие тени
+    }
+    
+}
+
