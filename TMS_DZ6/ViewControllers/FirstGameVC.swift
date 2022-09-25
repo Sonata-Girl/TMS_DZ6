@@ -34,9 +34,22 @@ class FirstGameVC: UIViewController {
         
         buttonForCircle.addTarget(self, action: #selector(moveCircle), for: .touchUpInside)
         
-        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width - 5
-        closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
+//        closeButton.frame.origin.x = self.view.frame.width - self.view.safeAreaInsets.right - closeButton.frame.size.width - 5
+//        closeButton.frame.origin.y = self.view.safeAreaInsets.top + 1
+//
+        
+        setupUI()
+    }
+    
+    
+    private func setupUI() {
         self.view.addSubview(closeButton)
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            closeButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -10),
+            closeButton.heightAnchor.constraint(equalToConstant: 20), // высота
+            closeButton.widthAnchor.constraint(equalToConstant: 20)
+        ])
         
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
     }

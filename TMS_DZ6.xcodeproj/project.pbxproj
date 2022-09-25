@@ -19,6 +19,8 @@
 		6736225928B4132400474BA1 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225828B4132400474BA1 /* GameButton.swift */; };
 		6736225B28B417C800474BA1 /* SixthGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225A28B417C800474BA1 /* SixthGameVC.swift */; };
 		6736225D28B4252000474BA1 /* SeventhGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736225C28B4252000474BA1 /* SeventhGameVC.swift */; };
+		6741E1EB28CCD25800DFBD0C /* actionj.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6741E1EA28CCD22000DFBD0C /* actionj.ttf */; };
+		6741E1ED28CCD64A00DFBD0C /* BERNIERShade-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6741E1EC28CCD33800DFBD0C /* BERNIERShade-Regular.otf */; };
 		67457CCA28AC3EDB00144BCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67457CC928AC3EDB00144BCA /* AppDelegate.swift */; };
 		67457CCC28AC3EDB00144BCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67457CCB28AC3EDB00144BCA /* SceneDelegate.swift */; };
 		67457CCE28AC3EDB00144BCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67457CCD28AC3EDB00144BCA /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		6736225828B4132400474BA1 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		6736225A28B417C800474BA1 /* SixthGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthGameVC.swift; sourceTree = "<group>"; };
 		6736225C28B4252000474BA1 /* SeventhGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhGameVC.swift; sourceTree = "<group>"; };
+		6741E1EA28CCD22000DFBD0C /* actionj.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = actionj.ttf; sourceTree = "<group>"; };
+		6741E1EC28CCD33800DFBD0C /* BERNIERShade-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BERNIERShade-Regular.otf"; sourceTree = "<group>"; };
 		67457CC628AC3EDB00144BCA /* TMS_DZ6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMS_DZ6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67457CC928AC3EDB00144BCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67457CCB28AC3EDB00144BCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,9 +108,19 @@
 			path = Addons;
 			sourceTree = "<group>";
 		};
+		6741E1E928CCD21200DFBD0C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6741E1EA28CCD22000DFBD0C /* actionj.ttf */,
+				6741E1EC28CCD33800DFBD0C /* BERNIERShade-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		67457CBD28AC3EDB00144BCA = {
 			isa = PBXGroup;
 			children = (
+				6741E1E928CCD21200DFBD0C /* Fonts */,
 				67457CC828AC3EDB00144BCA /* TMS_DZ6 */,
 				67457CC728AC3EDB00144BCA /* Products */,
 			);
@@ -194,6 +208,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6741E1ED28CCD64A00DFBD0C /* BERNIERShade-Regular.otf in Resources */,
+				6741E1EB28CCD25800DFBD0C /* actionj.ttf in Resources */,
 				67457CD628AC3EDC00144BCA /* LaunchScreen.storyboard in Resources */,
 				67457CD328AC3EDC00144BCA /* Assets.xcassets in Resources */,
 				67457CD128AC3EDB00144BCA /* Main.storyboard in Resources */,

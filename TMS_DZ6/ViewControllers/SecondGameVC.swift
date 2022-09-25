@@ -81,6 +81,18 @@ class SecondGameVC: UIViewController {
  
     }
     
+    private func setupUI() {
+        self.view.addSubview(closeButton)
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            closeButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -10),
+            closeButton.heightAnchor.constraint(equalToConstant: 20), // высота
+            closeButton.widthAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    }
+    
     @IBAction func actionPlus() {
         tupleSizeReact.y += 10
         tupleSizeReact.x += 10

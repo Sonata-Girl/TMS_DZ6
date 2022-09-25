@@ -74,6 +74,18 @@ final class EightCalculatorVC: UIViewController {
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
     }
     
+    private func setupUI() {
+        self.view.addSubview(closeButton)
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            closeButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -10),
+            closeButton.heightAnchor.constraint(equalToConstant: 20), // высота
+            closeButton.widthAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    }
+    
     override func viewDidLayoutSubviews() {
         closeButton.frame.origin.x = view.frame.width - view.safeAreaInsets.right - closeButton.frame.size.width - 5
         closeButton.frame.origin.y = view.safeAreaInsets.top + 1

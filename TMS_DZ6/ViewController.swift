@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         let safeArea = self.view.safeAreaInsets
         let buttonDistance = CGFloat(20)
         let viewHalfWidth = self.view.frame.size.width/2
                 
         self.view.addSubview(scrolView)
-       
+        
         label.text = "Welcome Screen! Choose the game..."
         label.textColor = .black
         label.frame.size.width = self.view.frame.size.width
@@ -102,14 +103,18 @@ class ViewController: UIViewController {
         button9.addTarget(self, action: #selector(pressButton9), for: .touchUpInside)
         button10.addTarget(self, action: #selector(pressButton10), for: .touchUpInside)
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-       
+        print("viewDidLayoutSubviews")
+      
+        
         scrolView.contentSize = CGSize(width: self.view.frame.size.width , height: self.view.frame.size.height + CGFloat(buttonsGame.count * 10))
         scrolView.frame.size.height = self.view.frame.size.height
         scrolView.frame.size.width = self.view.frame.size.width
         scrolView.frame.origin.x = self.view.frame.origin.x
-        scrolView.frame.origin.x = self.view.frame.origin.y
+        scrolView.frame.origin.y = self.view.frame.origin.y
+        
 //
 //        scrolView.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
@@ -125,6 +130,38 @@ class ViewController: UIViewController {
 //            buttonsGame[buttonsGame.count - 1].rightAnchor.constraint(equalTo: scrolView.rightAnchor, constant: 50),
 //            buttonsGame[buttonsGame.count - 1].leftAnchor.constraint(equalTo: scrolView.leftAnchor, constant: 50)
 //        ])
+    }
+    
+    override func loadView() {
+        super.loadView()
+        print("loadView")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+    }
+  
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("viewDidDisappear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDisappear")
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("viewWillLayoutSubviews")
+    }
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        print("updateViewConstraints")
     }
     
     @IBAction func pressButton1() {

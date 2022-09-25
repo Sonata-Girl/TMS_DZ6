@@ -101,6 +101,18 @@ class FifthGameVC_Main: UIViewController {
         RunLoop.current.add(timer, forMode: .common)
     }
     
+    private func setupUI() {
+        self.view.addSubview(closeButton)
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            closeButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -5),
+            closeButton.heightAnchor.constraint(equalToConstant: 20), // высота
+            closeButton.widthAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -114,6 +126,14 @@ class FifthGameVC_Main: UIViewController {
     //        bulletFind.frame.origin.y = waterView.frame.size.height
             bulletFind.frame.origin.x = waterView.frame.size.width
             
+            let bulletCountText = bulletCountLabel.text ?? ""
+            let bctAttributes: [NSAttributedString.Key: Any] = [
+                NSAttributedString.Key.link: "www.google.ru",
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+            ]
+            let attBulletCountText = NSAttributedString(string: bulletCountText, attributes: bctAttributes)
+            bulletCountLabel.attributedText = attBulletCountText
+            
             closeButton.translatesAutoresizingMaskIntoConstraints = false
             //  как задавать констрейнты constraints
             // сверху справа слева = по 100 и height 20
@@ -125,7 +145,7 @@ class FifthGameVC_Main: UIViewController {
             ])
         
             labelGameOver.text = "GAME OVER"
-            labelGameOver.font = UIFont.systemFont(ofSize: 120)
+            labelGameOver.font = UIFont(name: "ActionJackson", size: 120)
             labelGameOver.textColor = .white
             labelGameOver.tintColor = .red
             labelGameOver.isHidden = true
@@ -137,8 +157,8 @@ class FifthGameVC_Main: UIViewController {
             ])
             
             labelBulletFound.text = "+ 1 Bullet found"
-            labelBulletFound.font = UIFont.systemFont(ofSize: 80)
-            labelBulletFound.textColor = .yellow
+            labelBulletFound.font = UIFont.systemFont(ofSize: 60)
+            labelBulletFound.textColor = .orange
             labelBulletFound.isHidden = true
             
             labelBulletFound.translatesAutoresizingMaskIntoConstraints = false
@@ -217,9 +237,7 @@ class FifthGameVC_Main: UIViewController {
             let rangeYSubmarineStart = self.submarine.frame.origin.y
             let rangeYSubmarineEnd = self.submarine.frame.origin.y + self.submarine.frame.size.height
             if rangeYSubmarineStart...rangeYSubmarineEnd ~= self.octopus.frame.origin.y {
-//                if !self.timerBullet.isValid {
-                    self.stopTimerAndGameOver()
-//                }
+                self.stopTimerAndGameOver()
             }
         }
     }
@@ -244,12 +262,12 @@ class FifthGameVC_Main: UIViewController {
                 self.bulletFind.frame.origin.x = self.waterView.frame.size.width
                 self.bulletsCount += 1
                 self.bulletCountLabel.text = String(bulletsCount)
-                UIView.animate(withDuration: 0.3, delay: 1) {
+                UIView.animate(withDuration: 3) {
                     self.labelBulletFound.isHidden = false
+                    self.labelBulletFound.frame.size.width += 10
                 } completion: { _ in
                     self.labelBulletFound.isHidden = true
                 }
-
             }
         }
     }

@@ -36,6 +36,18 @@ class SixthGameVC: UIViewController {
         self.view.addGestureRecognizer(newCoordCircleForTap)
     }
     
+    private func setupUI() {
+        self.view.addSubview(closeButton)
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            closeButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -10),
+            closeButton.heightAnchor.constraint(equalToConstant: 20), // высота
+            closeButton.widthAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    }
+    
     @IBAction func closeButtonAction() {
         navigationController?.popViewController(animated: true)
     }
