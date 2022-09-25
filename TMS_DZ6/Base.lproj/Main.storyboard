@@ -13,12 +13,13 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TMS_DZ6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.94791525602340698" green="0.88210231065750122" blue="0.78986471891403198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="pda-3s-fNN"/>
+                    <size key="freeformSize" width="390" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -553,7 +554,7 @@
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="14"/>
+                                            <fontDescription key="titleFontDescription" name="BERNIERShade-Regular" family="BERNIER Shade" pointSize="22"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="fireAction:" destination="xZN-Y8-gED" eventType="touchUpInside" id="2Kh-0J-80j"/>
