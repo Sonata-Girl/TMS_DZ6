@@ -28,6 +28,8 @@ class FifthGameVC_Main: UIViewController {
    
     
     // MARK: variables
+    private var gameSpeed = 1
+
     private var elementsDidLoad = false
     
     private let closeButton = CloseButton()
@@ -47,10 +49,17 @@ class FifthGameVC_Main: UIViewController {
     
     private var timeInSec: Int = 0
    
+    private var gameSettingsSaved: SettingsGame = {
+        guard let gameSettingsSaved = UserDefaults.standard.value(SettingsGame.self, forKey: "userGameSettings") else {return SettingsGame()}
+        return gameSettingsSaved
+    }()
+    
     // MARK: LifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        loadUserSettings()
+    
         submarine.addShadow()
         shark.addShadow()
         ship.addShadow()
@@ -81,7 +90,9 @@ class FifthGameVC_Main: UIViewController {
         let downLongTap = UILongPressGestureRecognizer(target: self, action: #selector(downLongTapAction))
         downButton.addGestureRecognizer(downLongTap)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+        let speedGameDict = ["1":5, "2":4, "3":3, "4": 2,"5": 1]
+        
+        timer = Timer.scheduledTimer(withTimeInterval: Double(speedGameDict[String(gameSpeed)] ?? 5) * 0.01, repeats: true) { _ in
             if !self.isStartTimeForBulletFound {
                 self.timeInSec = Int(Date().timeIntervalSinceReferenceDate -  self.startTime)
             }
@@ -100,7 +111,13 @@ class FifthGameVC_Main: UIViewController {
         }
         RunLoop.current.add(timer, forMode: .common)
     }
-    
+
+    private func loadUserSettings() {
+        submarine.image = gameSettingsSaved.submarines[gameSettingsSaved.submarineIndex]
+        shark.image = gameSettingsSaved.animals[gameSettingsSaved.enemyIndex]
+        gameSpeed = gameSettingsSaved.gameSpeed
+    }
+
     private func setupUI() {
         self.view.addSubview(closeButton)
         NSLayoutConstraint.activate([
@@ -286,8 +303,6 @@ class FifthGameVC_Main: UIViewController {
             let rangeYBulletEnd = self.shark.frame.origin.y + self.shark.frame.size.height
             if rangeYBulletStart...rangeYBulletEnd ~= self.bulletShot.center.y {
                 self.timerBullet.invalidate()
-                self.scoresCount += 1
-                self.scoresLabel.text = String(scoresCount)
                 UIView.animate(withDuration: 0.3) {
                     self.shark.image = UIImage(named: "explosion")
                     self.shark.frame.origin.x += 50
@@ -297,6 +312,8 @@ class FifthGameVC_Main: UIViewController {
                     self.shark.frame.origin.x = 2000
                     self.shark.isHidden = false
                     self.shark.image = UIImage(named: "sharks")
+                    self.scoresCount += 1
+                    self.scoresLabel.text = String(self.scoresCount)
                 }
             }
         }
@@ -307,8 +324,6 @@ class FifthGameVC_Main: UIViewController {
             let rangeYBulletEnd = self.octopus.frame.origin.y + self.octopus.frame.size.height
             if rangeYBulletStart...rangeYBulletEnd ~= self.bulletShot.center.y {
                 self.timerBullet.invalidate()
-                self.scoresCount += 1
-                self.scoresLabel.text = String(scoresCount)
                 UIView.animate(withDuration: 0.3) {
                     self.octopus.image = UIImage(named: "explosion")
                     self.octopus.frame.origin.x += 50
@@ -318,6 +333,8 @@ class FifthGameVC_Main: UIViewController {
                     self.octopus.frame.origin.x = 2000
                     self.octopus.isHidden = false
                     self.octopus.image = UIImage(named: "octopus-2")
+                    self.scoresCount += 1
+                    self.scoresLabel.text = String(self.scoresCount)
                 }
             }
         }
@@ -334,7 +351,10 @@ class FifthGameVC_Main: UIViewController {
             
             self.labelGameOver.isHidden = false
         }
-       
+        
+        gameSettingsSaved.scores[gameSettingsSaved.gamerName] = scoresCount
+        UserDefaults.standard.set(encodable: gameSettingsSaved, forKey: "userGameSettings")
+
     }
     
     private func checkOxygen() {
@@ -371,6 +391,9 @@ class FifthGameVC_Main: UIViewController {
     // MARK: IBActions
     @IBAction func closeButtonAction() {
 //        dismiss(animated: true, completion: nil)
+        gameSettingsSaved.scores[gameSettingsSaved.gamerName] = scoresCount
+        UserDefaults.standard.set(encodable: gameSettingsSaved, forKey: "userGameSettings")
+
         navigationController?.popViewController(animated: true)
     }
         
@@ -435,10 +458,10 @@ extension UIImageView {
         layer.masksToBounds = false // распространение тени за пределы контейнера
         layer.shadowColor = UIColor.black.cgColor // цвет
         layer.shadowOpacity = 0.2 // прозрачность
-        layer.shadowOffset = CGSize(width: 0, height: 10) // расположение. сдвиг тени
+        layer.shadowOffset = CGSize(width: 10, height: 10) // расположение. сдвиг тени
         layer.shadowRadius = 20 // это отступ от вью до конца тени
         
-        layer.shadowPath = UIBezierPath(rect: bounds).cgPath // кривые бизье  - рисовка фигур кривых каких то
+//        layer.shadowPath = UIBezierPath(rect: bounds).cgPath // кривые бизье  - рисовка фигур кривых каких то
         
         layer.shouldRasterize = true //  размытие тени
     }

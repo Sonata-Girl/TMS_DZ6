@@ -102,6 +102,15 @@ class ViewController: UIViewController {
         button8.addTarget(self, action: #selector(pressButton8), for: .touchUpInside)
         button9.addTarget(self, action: #selector(pressButton9), for: .touchUpInside)
         button10.addTarget(self, action: #selector(pressButton10), for: .touchUpInside)
+        
+        scrolView.contentSize = CGSize(width: self.view.frame.size.width - 100 , height: self.view.frame.size.height + CGFloat(buttonsGame.count * 40))
+        scrolView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrolView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrolView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrolView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            scrolView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
     }
     
     override func viewDidLayoutSubviews() {
@@ -109,20 +118,14 @@ class ViewController: UIViewController {
         print("viewDidLayoutSubviews")
       
         
-        scrolView.contentSize = CGSize(width: self.view.frame.size.width , height: self.view.frame.size.height + CGFloat(buttonsGame.count * 10))
-        scrolView.frame.size.height = self.view.frame.size.height
-        scrolView.frame.size.width = self.view.frame.size.width
-        scrolView.frame.origin.x = self.view.frame.origin.x
-        scrolView.frame.origin.y = self.view.frame.origin.y
+//        scrolView.contentSize = CGSize(width: self.view.frame.size.width , height: self.view.frame.size.height + CGFloat(buttonsGame.count * 10))
+//        scrolView.frame.size.height = self.view.frame.size.height
+//        scrolView.frame.size.width = self.view.frame.size.width
+//        scrolView.frame.origin.x = self.view.frame.origin.x
+//        scrolView.frame.origin.y = self.view.frame.origin.y
         
 //
-//        scrolView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            scrolView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-//            scrolView.topAnchor.constraint(equalTo: self.view.topAnchor),
-//            scrolView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-//            scrolView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
-//        ])
+ 
         
 //        buttonsGame[buttonsGame.count - 1].translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([

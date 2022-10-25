@@ -9,7 +9,7 @@ import UIKit
 
 class FirstGameVC: UIViewController {
     
-    //  / / / / / / / / / / / / / / / / / / // / / /   FIRS GAME
+    //  / / / / / / / / / / / / / / / / / / // / / /   FIRST GAME
     let buttonForCircle = UIButton()
     let closeButton = CloseButton()
    
